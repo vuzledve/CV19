@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19", "CV19\CV19.csproj", "{0029ED4A-3263-4BEC-973D-E21E47C414CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV19", "CV19\CV19.csproj", "{0029ED4A-3263-4BEC-973D-E21E47C414CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F171E509-2DA6-4B0C-BC02-BB49619D1D1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19Console", "Tests\CV19Console\CV19Console.csproj", "{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{0029ED4A-3263-4BEC-973D-E21E47C414CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0029ED4A-3263-4BEC-973D-E21E47C414CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0029ED4A-3263-4BEC-973D-E21E47C414CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA4543BC-25B9-42E3-ADFA-1BF6E6DA71BB} = {F171E509-2DA6-4B0C-BC02-BB49619D1D1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A792CD52-3CE3-4967-AE94-26799613EB9F}
