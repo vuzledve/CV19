@@ -32,7 +32,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="150" MaxWidth="300">
-                <TextBlock Text="1234"/>
+                <TextBlock Text="{Binding Path=Status}"/>
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar Width="120" Height="15" Value="30"/>
@@ -59,6 +59,9 @@
                     <Ellipse Grid.Row="0" Grid.Column="1" 
                              Fill="Aqua" Stroke="DarkOrange"
                              StrokeThickness="10"/>
+                    <GridSplitter Grid.Column="0" Grid.RowSpan="2"
+                                  HorizontalAlignment="Right"
+                                  Width="4"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tab2"></TabItem>
