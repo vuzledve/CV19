@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  mc:Ignorable="d"
         
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:vm="clr-namespace:CV19.ViewModels"
         xmlns:local="clr-namespace:CV19"
@@ -56,7 +57,15 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Tab1">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Sourse="относительный путь до пикчи"></Image>-->
+                        <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0"
+                                         Foreground="Red"/>
+                        <TextBlock Text="Tab1"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="46*"/>
