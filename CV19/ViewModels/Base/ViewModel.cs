@@ -30,7 +30,7 @@ namespace CV19.ViewModels.Base
             return true;
         }
 
-        #region освобождение ресурсов
+        #region Освобождение ресурсов      
         //~ViewModel()
         //{
         //    Dispose(false);
