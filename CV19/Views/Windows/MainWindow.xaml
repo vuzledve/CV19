@@ -12,10 +12,56 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    <!-- Тестирование модели-представления 
     <Grid>
         <TextBox 
             Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" 
             VerticalAlignment="Top" Width="324" Height="20"  HorizontalAlignment="Left" Margin="48,42,0,0" TextWrapping="Wrap" />
-
-    </Grid>
+        <Slider 
+            Value="{Binding Path=Title}"
+            HorizontalAlignment="Left" Margin="48,98,0,0" VerticalAlignment="Top" Width="324" Height="27"/>
+    </Grid> -->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem MinWidth="150" MaxWidth="300">
+                <TextBlock Text="1234"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="15" Value="30"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Tab1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46*"/>
+                        <RowDefinition Height="51*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="157*"/>
+                        <ColumnDefinition Width="240*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Rectangle Grid.Row="0" Grid.Column="0" 
+                               Margin="50,20"
+                               Fill="Blue" Stroke="Green" 
+                               StrokeThickness="30" 
+                               RadiusX="500" RadiusY="7"/>
+                    
+                    <Ellipse Grid.Row="0" Grid.Column="1" 
+                             Fill="Aqua" Stroke="DarkOrange"
+                             StrokeThickness="10"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tab2"></TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
