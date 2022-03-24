@@ -7,21 +7,19 @@ using System.Windows.Input;
 
 namespace CV19.Infrastructure.Commands.Base
 {
-    internal class Command : ICommand
+    internal abstract class Command : ICommand
     {
-        //активируется когда CanExecute начинает возвращать другое значение
+        //генерируется когда CanExecute начинает возвращать другое значение
         public event EventHandler? CanExecuteChanged
         {
-            add => CommandManager.RequerySuggested += value; 
+            add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
 
-        //может ли команда быть выполнена 
-        public abstract bool CanExecute(object? parameter)
-       
+        //может ли быть выполнена команда
+        public abstract bool CanExecute(object parameter);
 
-        //то, что должно быть выполнено командой (логика команды)
-        public abstract void Execute(object? parameter)
-        
+        //логика команды (то, что должно быть выполнено командой)
+        public abstract void Execute(object parameter);
     }
 }
