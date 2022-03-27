@@ -7,6 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:vm="clr-namespace:CV19.ViewModels"
+        xmlns:l1vm="clr-namespace:CV19.ViewModels.Lesson_1"
         xmlns:local="clr-namespace:CV19"
         xmlns:oxy="http://oxyplot.org/wpf" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="{Binding Path=Title}" 
@@ -33,108 +34,121 @@
             Value="{Binding Path=Title}"
             HorizontalAlignment="Left" Margin="48,98,0,0" VerticalAlignment="Top" Width="324" Height="27"/>
     </Grid> -->
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Файл">
-                <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"></MenuItem>-->
-                <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand_key}"></MenuItem>
-                <!--<MenuItem Header="Выход">
+    <TabControl>
+        <TabItem Header="lesson 1">
+            <TabItem.DataContext>
+                <l1vm:Lesson1ViewModel/>
+            </TabItem.DataContext>
+            <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Файл">
+                    <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"></MenuItem>-->
+                    <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand_key}"></MenuItem>
+                    <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseApplicationCommand/>
                        
                     </MenuItem.Command>
                 </MenuItem>-->
-            </MenuItem>
-            <MenuItem Header="Помощь">
-                <MenuItem Header="О программе"></MenuItem>
-            </MenuItem>
-            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="-1">
-                <!--<MenuItem.CommandParameter>
+                </MenuItem>
+                <MenuItem Header="Помощь">
+                    <MenuItem Header="О программе"></MenuItem>
+                </MenuItem>
+                <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="-1">
+                    <!--<MenuItem.CommandParameter>
                     <x:Array Type="{x:Type sys:Object}">
                         <sys:Int32>-1</sys:Int32>
                         <sys:Int32>6</sys:Int32>
                     </x:Array>
                 </MenuItem.CommandParameter>-->
-                <MenuItem.Header>
-                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"></fa:ImageAwesome>
-                </MenuItem.Header>
-            </MenuItem>
-            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="+1">
-                <!--<MenuItem.CommandParameter>
+                    <MenuItem.Header>
+                        <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"></fa:ImageAwesome>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="+1">
+                    <!--<MenuItem.CommandParameter>
                     <x:Array Type="{x:Type sys:Object}">
                         <sys:Int32>+1</sys:Int32>
                         <sys:Int32>6</sys:Int32>
                     </x:Array>
                 </MenuItem.CommandParameter>-->
-                <MenuItem.Header>
-                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"></fa:ImageAwesome>
-                </MenuItem.Header>
-            </MenuItem>
-            <MenuItem Header="{Binding SelectedPageIndex}" IsEnabled="False"></MenuItem>
-        </Menu>
-        <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem MinWidth="150" MaxWidth="300">
-                <TextBlock Text="{Binding Path=Status}"/>
-            </StatusBarItem>
-            <StatusBarItem>
-                <ProgressBar Width="120" Height="15" Value="30"/>
-            </StatusBarItem>
-        </StatusBar>
-        <TabControl SelectedIndex="{Binding Path=SelectedPageIndex}">
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Image Sourse="относительный путь до пикчи"></Image>-->
-                        <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0"
-                                         Foreground="Red"/>
-                        <TextBlock Text="Tab1"/>
-                    </StackPanel>
-                </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="46*"/>
-                        <RowDefinition Height="51*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="157*"/>
-                        <ColumnDefinition Width="240*"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Rectangle Grid.Row="0" Grid.Column="0" 
-                               Margin="50,20"
-                               Fill="Blue" Stroke="Green" 
-                               StrokeThickness="30" 
-                               RadiusX="500" RadiusY="7"/>
+                    <MenuItem.Header>
+                        <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"></fa:ImageAwesome>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Header="{Binding SelectedPageIndex}" IsEnabled="False"></MenuItem>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem MinWidth="150" MaxWidth="300">
+                    <TextBlock Text="{Binding Path=Status}"/>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <ProgressBar Width="120" Height="15" Value="30"/>
+                </StatusBarItem>
+            </StatusBar>
+            <TabControl SelectedIndex="{Binding Path=SelectedPageIndex}">
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Sourse="относительный путь до пикчи"></Image>-->
+                            <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0"
+                                            Foreground="Red"/>
+                            <TextBlock Text="Tab1"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="46*"/>
+                            <RowDefinition Height="51*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="157*"/>
+                            <ColumnDefinition Width="240*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Ellipse Grid.Row="0" Grid.Column="1" 
-                             Fill="Aqua" Stroke="DarkOrange"
-                             StrokeThickness="10">
-                        <Ellipse.InputBindings>
-                            <MouseBinding Command="{Binding CloseApplicationCommand}"
-                                          MouseAction="LeftDoubleClick"/>
-                        </Ellipse.InputBindings>
-                    </Ellipse>
-                    <GridSplitter Grid.Column="0" Grid.RowSpan="2"
-                                  HorizontalAlignment="Right"
-                                  Width="4"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
-                <oxy:PlotView
+                        <Rectangle Grid.Row="0" Grid.Column="0" 
+                                Margin="50,20"
+                                Fill="Blue" Stroke="Green" 
+                                StrokeThickness="30" 
+                                RadiusX="500" RadiusY="7"/>
+
+                        <Ellipse Grid.Row="0" Grid.Column="1" 
+                                Fill="Aqua" Stroke="DarkOrange"
+                                StrokeThickness="10">
+                            <Ellipse.InputBindings>
+                                <MouseBinding Command="{Binding CloseApplicationCommand}"
+                                            MouseAction="LeftDoubleClick"/>
+                            </Ellipse.InputBindings>
+                        </Ellipse>
+                        <GridSplitter Grid.Column="0" Grid.RowSpan="2"
+                                    HorizontalAlignment="Right"
+                                    Width="4"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
+                    <oxy:PlotView
                     
                     Model="{Binding Path=TestDataPoints}"
                     />
-            </TabItem>
-            <TabItem  Header="График">
-                <TabItem.DataContext>
-                    <vm:PlotViewModel/>
-                </TabItem.DataContext>
-                
-                    <oxy:PlotView Model="{Binding MyModel}"/>                
-            </TabItem>
-            <TabItem  Header="Tab4"></TabItem>
-            <TabItem  Header="Tab5"></TabItem>
-            <TabItem  Header="Tab6"></TabItem>
-        </TabControl>
-    </DockPanel>
+                </TabItem>
+                <TabItem  Header="График">
+                    <TabItem.DataContext>
+                        <l1vm:PlotViewModel/>
+                    </TabItem.DataContext>
+
+                    <oxy:PlotView Model="{Binding MyModel}"/>
+                </TabItem>
+                <TabItem  Header="Tab4"></TabItem>
+                <TabItem  Header="Tab5"></TabItem>
+                <TabItem  Header="Tab6"></TabItem>
+            </TabControl>
+        </DockPanel>
+   
+        </TabItem>
+        <TabItem Header="lesson 2">
+
+        </TabItem>
+    </TabControl>
+       
+        
 </Window>

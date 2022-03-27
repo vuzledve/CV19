@@ -9,7 +9,7 @@ using CV19.ViewModels.Base;
 using OxyPlot;
 using OxyPlot.Series;
 
-namespace CV19.ViewModels
+namespace CV19.ViewModels.Lesson_1
 {
     internal class PlotViewModel : ViewModel
     {
