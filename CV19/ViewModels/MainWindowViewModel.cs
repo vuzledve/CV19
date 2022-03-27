@@ -17,7 +17,7 @@ namespace CV19.ViewModels
     {
         #region Заголовок окна
 
-        private string _Title = "Анализ статистики CV19";
+        private string _Title = "MVVM WPF Lessons";
 
         /// <summary> Заголовок окна </summary>
         public string Title
