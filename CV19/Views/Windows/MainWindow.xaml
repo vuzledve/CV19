@@ -97,18 +97,19 @@
                                   Width="4"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="График">
+            <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
                 <oxy:PlotView
                     
                     Model="{Binding Path=TestDataPoints}"
                     />  
             </TabItem>
-            
-            <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
+
+            <TabItem  Header="График">
                 <TabItem.DataContext>
                     <vm:PlotViewModel/>
                 </TabItem.DataContext>
-                <oxy:PlotView Model="{Binding MyModel}"/>
+                
+                    <oxy:PlotView Model="{Binding MyModel}"/>                
             </TabItem>
         </TabControl>
     </DockPanel>

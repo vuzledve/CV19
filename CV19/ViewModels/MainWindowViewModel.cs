@@ -16,12 +16,6 @@ namespace CV19.ViewModels
     internal class MainWindowViewModel : ViewModel
     {
 
-   
-      
-           
-     
-      
-
         #region Тестовый набор данных для визуализации графиков
 
         private IEnumerable<DataPoint> _TestDataPoints;
