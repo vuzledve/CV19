@@ -8,8 +8,7 @@
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:vm="clr-namespace:CV19.ViewModels"
         xmlns:local="clr-namespace:CV19"
-        xmlns:oxy="http://oxyplot.org/wpf"
-       
+        xmlns:oxy="http://oxyplot.org/wpf" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="{Binding Path=Title}" 
         Height="450" Width="800">
     
@@ -49,6 +48,29 @@
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"></MenuItem>
             </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="-1">
+                <!--<MenuItem.CommandParameter>
+                    <x:Array Type="{x:Type sys:Object}">
+                        <sys:Int32>-1</sys:Int32>
+                        <sys:Int32>6</sys:Int32>
+                    </x:Array>
+                </MenuItem.CommandParameter>-->
+                <MenuItem.Header>
+                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"></fa:ImageAwesome>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="+1">
+                <!--<MenuItem.CommandParameter>
+                    <x:Array Type="{x:Type sys:Object}">
+                        <sys:Int32>+1</sys:Int32>
+                        <sys:Int32>6</sys:Int32>
+                    </x:Array>
+                </MenuItem.CommandParameter>-->
+                <MenuItem.Header>
+                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"></fa:ImageAwesome>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Header="{Binding SelectedPageIndex}" IsEnabled="False"></MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="150" MaxWidth="300">
@@ -58,7 +80,7 @@
                 <ProgressBar Width="120" Height="15" Value="30"/>
             </StatusBarItem>
         </StatusBar>
-        <TabControl>
+        <TabControl SelectedIndex="{Binding Path=SelectedPageIndex}">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -101,9 +123,8 @@
                 <oxy:PlotView
                     
                     Model="{Binding Path=TestDataPoints}"
-                    />  
+                    />
             </TabItem>
-
             <TabItem  Header="График">
                 <TabItem.DataContext>
                     <vm:PlotViewModel/>
@@ -111,6 +132,9 @@
                 
                     <oxy:PlotView Model="{Binding MyModel}"/>                
             </TabItem>
+            <TabItem  Header="Tab4"></TabItem>
+            <TabItem  Header="Tab5"></TabItem>
+            <TabItem  Header="Tab6"></TabItem>
         </TabControl>
     </DockPanel>
 </Window>
