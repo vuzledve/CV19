@@ -8,6 +8,7 @@
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:vm="clr-namespace:CV19.ViewModels"
         xmlns:l1vm="clr-namespace:CV19.ViewModels.Lesson_1"
+        xmlns:l2vm="clr-namespace:CV19.ViewModels.Lesson_2"
         xmlns:local="clr-namespace:CV19"
         xmlns:oxy="http://oxyplot.org/wpf" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="{Binding Path=Title}" 
@@ -136,7 +137,8 @@
                         <l1vm:PlotViewModel/>
                     </TabItem.DataContext>
 
-                    <oxy:PlotView Model="{Binding MyModel}"/>
+                    <oxy:PlotView Model="{Binding MyModel}"/>
+
                 </TabItem>
                 <TabItem  Header="Tab4"></TabItem>
                 <TabItem  Header="Tab5"></TabItem>
@@ -146,7 +148,30 @@
    
         </TabItem>
         <TabItem Header="lesson 2">
-
+            <TabItem.DataContext>
+                <l2vm:Lesson2ViewModel/>
+            </TabItem.DataContext>
+            <TabControl>
+                <TabItem Header="Студенты">
+                    <!--<TextBlock Text="{Binding Path=Groups[3].Students[4].Name}"></TextBlock>-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <!--<ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>-->
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Grid.Column="0" Header="Группы">
+                            <ListBox ItemsSource="{Binding Path=Groups}" DisplayMemberPath="Name"/>
+                        </GroupBox>
+                        <GroupBox Grid.Column="1" Header="Студенты">
+                            <DataGrid>
+                                
+                            </DataGrid>
+                        </GroupBox>
+                    </Grid>       
+                </TabItem>
+            </TabControl>
         </TabItem>
     </TabControl>
        
