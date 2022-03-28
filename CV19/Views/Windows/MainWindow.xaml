@@ -172,7 +172,13 @@
                                                     TargetNullValue='Группа не выбрана'}">
                             <DataGrid ItemsSource="{Binding SelectedGroup.Students}" 
                                       AutoGenerateColumns="False"
-                                      IsReadOnly="True">
+                                      IsReadOnly="True"
+                                      GridLinesVisibility="Vertical"
+                                      VerticalGridLinesBrush="DarkGray"
+                                      AlternatingRowBackground="LightGray">
+                                      <!--HorizontalGridLinesBrush="{x:Null}"-->
+                                      
+                                      
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
                                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
@@ -180,6 +186,7 @@
                                     <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}"/>
                                     <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>
                                     <DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                    <DataGridTextColumn Header="Заметки" Binding="{Binding Description}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </GroupBox>
