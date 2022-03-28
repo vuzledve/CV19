@@ -7,6 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:vm="clr-namespace:CV19.ViewModels"
+        xmlns:decanat="clr-namespace:CV19.Models.Decanat"
         xmlns:l1vm="clr-namespace:CV19.ViewModels.Lesson_1"
         xmlns:l2vm="clr-namespace:CV19.ViewModels.Lesson_2"
         xmlns:local="clr-namespace:CV19"
@@ -184,7 +185,14 @@
                                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
                                     <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
                                     <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}"/>
-                                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>
+                                    <!--<DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>-->
+                                    <DataGridTemplateColumn Header="Дата рождения" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="decanat:Student">
+                                                <DatePicker  SelectedDate="{Binding Birthday}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
                                     <DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
                                     <DataGridTextColumn Header="Заметки" Binding="{Binding Description}" Width="*"/>
                                 </DataGrid.Columns>
