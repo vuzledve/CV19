@@ -8,12 +8,37 @@ using CV19.Models;
 using CV19.ViewModels.Base;
 using CV19.Models.Decanat;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace CV19.ViewModels.Lesson_2
 {
     internal class Lesson2ViewModel : ViewModel
     {
         public ObservableCollection<Group> Groups { get; }
+
+        public object[] CompositeCollection { get; }
+
+
+
+        #region SelectedCompositeValue : object - Выбранный непонятный элемент
+
+        /// <summary>Выбранный непонятный элемент</summary>
+        private object _SelectedCompositeValue;
+
+        /// <summary>Выбранный непонятный элемент</summary>
+        public object SelectedCompositeValue
+        {
+            get => _SelectedCompositeValue;
+            set => Set(ref _SelectedCompositeValue, value);
+        }
+
+        #endregion
+
+
+
+
+       
+
 
 
 
@@ -63,6 +88,17 @@ namespace CV19.ViewModels.Lesson_2
             }) ;
             Groups = new ObservableCollection<Group>(groups);
 
+
+            #region CompositeCollection
+            var data_list = new List<object>();
+
+            data_list.Add("hello world");
+            data_list.Add(43);
+            data_list.Add(Groups[1]);
+            data_list.Add(Groups[1].Students[0]);
+
+            CompositeCollection = data_list.ToArray(); 
+            #endregion
         }
     }
 }
