@@ -14,6 +14,7 @@ namespace CV19.ViewModels.Lesson_2
 {
     internal class Lesson2ViewModel : ViewModel
     {
+        #region Свойства
         public ObservableCollection<Group> Groups { get; }
 
         public object[] CompositeCollection { get; }
@@ -35,13 +36,6 @@ namespace CV19.ViewModels.Lesson_2
         #endregion
 
 
-
-
-       
-
-
-
-
         #region SelectedGroup : Group - Выбранная группа
 
         /// <summary>Выбранная группа</summary>
@@ -57,11 +51,48 @@ namespace CV19.ViewModels.Lesson_2
         #endregion
 
 
+        #endregion
 
+        #region Команды
 
+        #region CreateGroupCommand
+        public ICommand CreateGroupCommand { get; }
+
+        private bool CanCreateGroupCommandExecute(object p) => true;
+
+        private void OnCreateGroupCommandExecuted(object p)
+        {
+            int group_max_index = Groups.Count + 1;
+            var new_group = new Group
+            {
+                Name = $"Группа {group_max_index}",
+                Students = new ObservableCollection<Student>()
+            };
+            Groups.Add(new_group);
+        }
+        #endregion
+
+        #region DeleteGroupCommand
+        public ICommand DeleteGroupCommand { get; }
+
+        private bool CanDeleteGroupCommandExecute(object p) => p is Group group && Groups.Contains(group);
+
+        private void OnDeleteGroupCommandExecuted(object p)
+        {
+            if (!(p is Group group)) return;
+            int group_index = Groups.IndexOf(group);
+            Groups.Remove(group);
+            if (group_index < Groups.Count)
+                SelectedGroup = Groups[group_index];
+        }
+        #endregion
+
+        #endregion
 
         public Lesson2ViewModel()
         {
+            DeleteGroupCommand = new ActionCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
+            CreateGroupCommand = new ActionCommand(OnCreateGroupCommandExecuted, CanCreateGroupCommandExecute);
 
             int student_index = 1;
             var stusents = Enumerable.Range(1, 10).Select(i => new Student
