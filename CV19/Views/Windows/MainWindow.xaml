@@ -27,6 +27,9 @@
 
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand_key"/>
+        
+           
+       
     </Window.Resources>
     <!-- Тестирование модели-представления 
     <Grid>
@@ -152,7 +155,9 @@
         <TabItem Header="lesson 2">
             <TabItem.DataContext>
                 <l2vm:Lesson2ViewModel/>
+                
             </TabItem.DataContext>
+            
             <TabControl>
                 <TabItem Header="Студенты">
                     <!--<TextBlock Text="{Binding Path=Groups[3].Students[4].Name}"></TextBlock>-->
@@ -167,14 +172,14 @@
                             <DockPanel>
                                 <UniformGrid DockPanel.Dock="Bottom" Rows="1" Margin="0,3">
                                     <UniformGrid.Resources>
-                                        <Style x:Key="MyButtonStyle" TargetType="Button">
+                                        <Style  TargetType="Button">
                                             <Setter Property="Margin" Value="3,0"/>
                                             <Setter Property="Padding" Value="3,5"/>
-                                            <Setter Property="Background" Value="White"/>
+                                            <Setter Property="Background" Value="LightGreen"/>
                                         </Style>
                                     </UniformGrid.Resources>
-                                    <Button Content ="Добавить" Style="{StaticResource MyButtonStyle}" Command="{Binding Path=CreateGroupCommand}"/>
-                                    <Button Content ="Удалить" Style="{StaticResource MyButtonStyle}" Command="{Binding DeleteGroupCommand}" CommandParameter="{Binding SelectedGroup}"/>
+                                    <Button Content ="Добавить" Command="{Binding Path=CreateGroupCommand}"/>
+                                    <Button Content ="Удалить" Style="{StaticResource DangerBtn}"  Command="{Binding DeleteGroupCommand}" CommandParameter="{Binding SelectedGroup}"/>
                                 </UniformGrid>
                                 <ListBox ItemsSource="{Binding Path=Groups}" SelectedIndex="0"
                                      SelectedItem="{Binding Path=SelectedGroup}">
@@ -318,6 +323,18 @@
                             <ContentControl Content="{Binding SelectedCompositeValue}"/>
                         </GroupBox>
                     </Grid>
+                </TabItem>
+                <TabItem Header="Кнопки">
+                    <UniformGrid>
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Content="111" Margin="15,5" Padding="14,5"
+                            Style="{StaticResource PrimaryBtn}"/>
+
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Content="2" Margin="15,5" Padding="14,5"
+                            Style="{StaticResource DangerBtn}"/>
+
+                    </UniformGrid>
                 </TabItem>
             </TabControl>
         </TabItem>
