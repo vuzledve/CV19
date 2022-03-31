@@ -15,21 +15,21 @@
         xmlns:oxy="http://oxyplot.org/wpf" 
         Title="{Binding Path=Title}" 
         Height="450" Width="800">
-    
+
     <Window.DataContext>
         <vm:MainWindowViewModel/>
-       
+
     </Window.DataContext>
-    
+
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" Command="{Binding CloseApplicationCommand}"/>
     </Window.InputBindings>
 
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand_key"/>
-        
-           
-       
+
+
+
     </Window.Resources>
     <!-- Тестирование модели-представления 
     <Grid>
@@ -46,118 +46,118 @@
                 <l1vm:Lesson1ViewModel/>
             </TabItem.DataContext>
             <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Файл">
-                    <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"></MenuItem>-->
-                    <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand_key}"></MenuItem>
-                    <!--<MenuItem Header="Выход">
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="Файл">
+                        <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"></MenuItem>-->
+                        <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand_key}"></MenuItem>
+                        <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseApplicationCommand/>
                        
                     </MenuItem.Command>
                 </MenuItem>-->
-                </MenuItem>
-                <MenuItem Header="Помощь">
-                    <MenuItem Header="О программе"></MenuItem>
-                </MenuItem>
-                <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="-1">
-                    <!--<MenuItem.CommandParameter>
+                    </MenuItem>
+                    <MenuItem Header="Помощь">
+                        <MenuItem Header="О программе"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="-1">
+                        <!--<MenuItem.CommandParameter>
                     <x:Array Type="{x:Type sys:Object}">
                         <sys:Int32>-1</sys:Int32>
                         <sys:Int32>6</sys:Int32>
                     </x:Array>
                 </MenuItem.CommandParameter>-->
-                    <MenuItem.Header>
-                        <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"></fa:ImageAwesome>
-                    </MenuItem.Header>
-                </MenuItem>
-                <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="+1">
-                    <!--<MenuItem.CommandParameter>
+                        <MenuItem.Header>
+                            <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"></fa:ImageAwesome>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter ="+1">
+                        <!--<MenuItem.CommandParameter>
                     <x:Array Type="{x:Type sys:Object}">
                         <sys:Int32>+1</sys:Int32>
                         <sys:Int32>6</sys:Int32>
                     </x:Array>
                 </MenuItem.CommandParameter>-->
-                    <MenuItem.Header>
-                        <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"></fa:ImageAwesome>
-                    </MenuItem.Header>
-                </MenuItem>
-                <MenuItem Header="{Binding SelectedPageIndex}" IsEnabled="False"></MenuItem>
-            </Menu>
-            <StatusBar DockPanel.Dock="Bottom">
-                <StatusBarItem MinWidth="150" MaxWidth="300">
-                    <TextBlock Text="{Binding Path=Status}"/>
-                </StatusBarItem>
-                <StatusBarItem>
-                    <ProgressBar Width="120" Height="15" Value="30"/>
-                </StatusBarItem>
-            </StatusBar>
-            <TabControl SelectedIndex="{Binding Path=SelectedPageIndex}">
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <!--<Image Sourse="относительный путь до пикчи"></Image>-->
-                            <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0"
+                        <MenuItem.Header>
+                            <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"></fa:ImageAwesome>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Header="{Binding SelectedPageIndex}" IsEnabled="False"></MenuItem>
+                </Menu>
+                <StatusBar DockPanel.Dock="Bottom">
+                    <StatusBarItem MinWidth="150" MaxWidth="300">
+                        <TextBlock Text="{Binding Path=Status}"/>
+                    </StatusBarItem>
+                    <StatusBarItem>
+                        <ProgressBar Width="120" Height="15" Value="30"/>
+                    </StatusBarItem>
+                </StatusBar>
+                <TabControl SelectedIndex="{Binding Path=SelectedPageIndex}">
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Image Sourse="относительный путь до пикчи"></Image>-->
+                                <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0"
                                             Foreground="Red"/>
-                            <TextBlock Text="Tab1"/>
-                        </StackPanel>
-                    </TabItem.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="46*"/>
-                            <RowDefinition Height="51*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="157*"/>
-                            <ColumnDefinition Width="240*"/>
-                        </Grid.ColumnDefinitions>
+                                <TextBlock Text="Tab1"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="46*"/>
+                                <RowDefinition Height="51*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="157*"/>
+                                <ColumnDefinition Width="240*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Rectangle Grid.Row="0" Grid.Column="0" 
+                            <Rectangle Grid.Row="0" Grid.Column="0" 
                                 Margin="50,20"
                                 Fill="Blue" Stroke="Green" 
                                 StrokeThickness="30" 
                                 RadiusX="500" RadiusY="7"/>
 
-                        <Ellipse Grid.Row="0" Grid.Column="1" 
+                            <Ellipse Grid.Row="0" Grid.Column="1" 
                                 Fill="Aqua" Stroke="DarkOrange"
                                 StrokeThickness="10">
-                            <Ellipse.InputBindings>
-                                <MouseBinding Command="{Binding CloseApplicationCommand}"
+                                <Ellipse.InputBindings>
+                                    <MouseBinding Command="{Binding CloseApplicationCommand}"
                                             MouseAction="LeftDoubleClick"/>
-                            </Ellipse.InputBindings>
-                        </Ellipse>
-                        <GridSplitter Grid.Column="0" Grid.RowSpan="2"
+                                </Ellipse.InputBindings>
+                            </Ellipse>
+                            <GridSplitter Grid.Column="0" Grid.RowSpan="2"
                                     HorizontalAlignment="Right"
                                     Width="4"/>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
-                    <oxy:PlotView
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="{Binding Path=TestDataPoints[43].XValue}">
+                        <oxy:PlotView
                     
                     Model="{Binding Path=TestDataPoints}"
                     />
-                </TabItem>
-                <TabItem  Header="График">
-                    <TabItem.DataContext>
-                        <l1vm:PlotViewModel/>
-                    </TabItem.DataContext>
+                    </TabItem>
+                    <TabItem  Header="График">
+                        <TabItem.DataContext>
+                            <l1vm:PlotViewModel/>
+                        </TabItem.DataContext>
 
-                    <oxy:PlotView Model="{Binding MyModel}"/>
+                        <oxy:PlotView Model="{Binding MyModel}"/>
 
-                </TabItem>
-                <TabItem  Header="Tab4"></TabItem>
-                <TabItem  Header="Tab5"></TabItem>
-                <TabItem  Header="Tab6"></TabItem>
-            </TabControl>
-        </DockPanel>
-   
+                    </TabItem>
+                    <TabItem  Header="Tab4"></TabItem>
+                    <TabItem  Header="Tab5"></TabItem>
+                    <TabItem  Header="Tab6"></TabItem>
+                </TabControl>
+            </DockPanel>
+
         </TabItem>
         <TabItem Header="lesson 2">
             <TabItem.DataContext>
                 <l2vm:Lesson2ViewModel/>
-                
+
             </TabItem.DataContext>
-            
+
             <TabControl>
                 <TabItem Header="Студенты">
                     <!--<TextBlock Text="{Binding Path=Groups[3].Students[4].Name}"></TextBlock>-->
@@ -178,7 +178,17 @@
                                             <Setter Property="Background" Value="LightGreen"/>
                                         </Style>
                                     </UniformGrid.Resources>
-                                    <Button Content ="Добавить" Command="{Binding Path=CreateGroupCommand}"/>
+                                    <Button Command="{Binding Path=CreateGroupCommand}" Style="{StaticResource PrimaryBtn}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <fa:ImageAwesome Height="13" Icon="Solid_Check" Foreground="Gray" Margin="0,0,3,0">
+                                                <fa:ImageAwesome.Effect>
+                                                    <DropShadowEffect ShadowDepth="1"/>
+                                                </fa:ImageAwesome.Effect>
+                                            </fa:ImageAwesome>
+                                            <TextBlock Text="Добавить"/>
+                                        </StackPanel>
+                                    </Button>
+
                                     <Button Content ="Удалить" Style="{StaticResource DangerBtn}"  Command="{Binding DeleteGroupCommand}" CommandParameter="{Binding SelectedGroup}"/>
                                 </UniformGrid>
                                 <ListBox ItemsSource="{Binding Path=Groups}" SelectedIndex="0"
@@ -205,10 +215,10 @@
                                       GridLinesVisibility="Vertical"
                                       VerticalGridLinesBrush="DarkGray"
                                       AlternatingRowBackground="LightGray">
-                                      <!--IsReadOnly="True"-->
-                                      <!--HorizontalGridLinesBrush="{x:Null}"-->
-                                      
-                                      
+                                <!--IsReadOnly="True"-->
+                                <!--HorizontalGridLinesBrush="{x:Null}"-->
+
+
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" IsReadOnly="True"/>
@@ -237,7 +247,7 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                         </GroupBox>
-                    </Grid>       
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Разнородные данные">
                     <Grid>
@@ -256,16 +266,16 @@
                                     </ResourceDictionary.MergedDictionaries>
                                 </ResourceDictionary>
                             </GroupBox.Resources>
-                        <ListBox ItemsSource="{Binding Path=CompositeCollection}" 
+                            <ListBox ItemsSource="{Binding Path=CompositeCollection}" 
                                  SelectedItem="{Binding SelectedCompositeValue}">
-                            <!--<ListBox.ItemTemplate>
+                                <!--<ListBox.ItemTemplate>
                                 <DataTemplate>
                                         <TextBlock Text="{Binding}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>-->
-                        </ListBox>
+                            </ListBox>
                         </GroupBox>
-                        
+
                         <GroupBox Grid.Column="1">
                             <GroupBox.Header>
                                 <TextBlock Text="Выбранный элемент"/>
@@ -291,11 +301,63 @@
                             Content="2" Margin="15,5" Padding="14,5"
                             Style="{StaticResource DangerBtn}"/>
 
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Content="2" Margin="15,5" Padding="14,5"
+                            Style="{StaticResource CustomButtonStyle}"/>
+
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Content="2" Margin="15,5,0,5" Padding="14,5"
+                            Style="{StaticResource CheckButtonStyle}" Width="117" Height="60"/>
+
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Content="2" Margin="15,5,0,5" Padding="14,5"
+                            Style="{StaticResource RemoveButtonStyle}" Width="117" Height="60"
+                                RenderTransformOrigin="0.5,0.5">
+                            <Button.Background>
+                                <SolidColorBrush Color="White" x:Name="ButtonBrush"/>
+                            </Button.Background>
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="0" x:Name="ButtonRotate"/>
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="ButtonRotate"
+                                                             Storyboard.TargetProperty="Angle"
+                                                              To="360"
+                                                             Duration="0:0:1"
+                                                             AutoReverse="True"/> <!--From="0"-->
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Button.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="ButtonBrush"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="Red"
+                                                            Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Button.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="ButtonBrush"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="White"
+                                                            Duration="0:0:3"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                        </Button>
                     </UniformGrid>
                 </TabItem>
             </TabControl>
         </TabItem>
     </TabControl>
-       
-        
+
+
 </Window>
