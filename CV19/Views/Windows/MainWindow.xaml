@@ -170,6 +170,11 @@
                         </Grid.ColumnDefinitions>
                         <GroupBox Grid.Column="0" Header="Группы">
                             <DockPanel>
+                                <DockPanel DockPanel.Dock="Top" Margin="0,3">
+                                    <!--<TextBlock Text="Фильтр:"/>-->
+                                    <fa:ImageAwesome Height="12" Icon="Solid_Search" Margin="3,0"/>
+                                    <TextBox/>
+                                </DockPanel>
                                 <UniformGrid DockPanel.Dock="Bottom" Rows="1" Margin="0,3">
                                     <UniformGrid.Resources>
                                         <Style  TargetType="Button">
@@ -214,43 +219,49 @@
                                             Header="{Binding Path=SelectedGroup.Name, 
                                                     FallbackValue='Студенты', 
                                                     TargetNullValue='Группа не выбрана'}">
-                            <DataGrid ItemsSource="{Binding SelectedGroup.Students}" 
+                            <DockPanel>
+                                <DockPanel DockPanel.Dock="Top" Margin="0,3">
+                                    <fa:ImageAwesome Height="12" Icon="Solid_Search" Margin="3,0"/>
+                                    <TextBox/>
+                                </DockPanel>
+                                <DataGrid ItemsSource="{Binding SelectedGroup.Students}" 
                                       AutoGenerateColumns="False"
                                       CanUserAddRows="False"
                                       GridLinesVisibility="Vertical"
                                       VerticalGridLinesBrush="DarkGray"
                                       AlternatingRowBackground="LightGray">
-                                <!--IsReadOnly="True"-->
-                                <!--HorizontalGridLinesBrush="{x:Null}"-->
+                                    <!--IsReadOnly="True"-->
+                                    <!--HorizontalGridLinesBrush="{x:Null}"-->
 
 
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}" IsReadOnly="True"/>
-                                    <!--<DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>-->
-                                    <DataGridTemplateColumn Header="Дата рождения" >
-                                        <!--<DataGridTemplateColumn.CellTemplate>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}" IsReadOnly="True"/>
+                                        <!--<DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>-->
+                                        <DataGridTemplateColumn Header="Дата рождения" >
+                                            <!--<DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="decanat:Student">
                                                 <DatePicker  SelectedDate="{Binding Birthday}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>-->
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="decanat:Student">
-                                                <TextBlock Text="{Binding Birthday, StringFormat=dd.MM.yyyy }"/>
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                        <DataGridTemplateColumn.CellEditingTemplate>
-                                            <DataTemplate DataType="decanat:Student">
-                                                <DatePicker  SelectedDate="{Binding Birthday}"/>
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellEditingTemplate>
-                                    </DataGridTemplateColumn>
-                                    <!--<DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>-->
-                                    <DataGridTextColumn Header="Заметки" Binding="{Binding Description}" Width="*"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate DataType="decanat:Student">
+                                                    <TextBlock Text="{Binding Birthday, StringFormat=dd.MM.yyyy }"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                            <DataGridTemplateColumn.CellEditingTemplate>
+                                                <DataTemplate DataType="decanat:Student">
+                                                    <DatePicker  SelectedDate="{Binding Birthday}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellEditingTemplate>
+                                        </DataGridTemplateColumn>
+                                        <!--<DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>-->
+                                        <DataGridTextColumn Header="Заметки" Binding="{Binding Description}" Width="*"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
                         </GroupBox>
                     </Grid>
                 </TabItem>
