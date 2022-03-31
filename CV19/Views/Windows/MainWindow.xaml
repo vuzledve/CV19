@@ -197,9 +197,14 @@
                                     <ListBox.ItemTemplate>
                                         <DataTemplate DataType="decanat:Group">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding Name}" Name="TextView"/>
                                                 <TextBlock Text="{Binding Students.Count, StringFormat=[Студентов: {0}]}" Margin="10,0,0,0"/>
                                             </StackPanel>
+                                            <DataTemplate.Triggers>
+                                                <DataTrigger Binding="{Binding Students.Count}" Value="0">
+                                                    <Setter TargetName="TextView" Property="Foreground" Value="Orange"/>
+                                                </DataTrigger>
+                                            </DataTemplate.Triggers>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
