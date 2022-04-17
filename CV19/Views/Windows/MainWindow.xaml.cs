@@ -51,5 +51,10 @@ namespace CV19
 
             e.Accepted = false;
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
