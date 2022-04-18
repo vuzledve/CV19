@@ -165,7 +165,15 @@
                         
                         <!--<TextBlock Text="{Binding Source={x:Static local:App.IsDesignMode} }"/>-->
                         <ListBox HorizontalAlignment="Left" Width="200" Margin="30" 
-                                 ItemsSource="{Binding TestStudents}">
+                                 ItemsSource="{Binding TestStudents}"
+                                 VirtualizingPanel.IsVirtualizing="True"
+                                 VirtualizingPanel.VirtualizationMode="Recycling"
+                                 VirtualizingPanel.IsContainerVirtualizable="True">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -264,9 +272,9 @@
                             <DockPanel>
                                 <DockPanel DockPanel.Dock="Top" Margin="0,3">
                                     <fa:ImageAwesome Height="12" Icon="Solid_Search" Margin="3,0"/>
-                                    <TextBox/>
+                                    <TextBox Text="{Binding StudentFilterText, UpdateSourceTrigger=PropertyChanged}"/>
                                 </DockPanel>
-                                <DataGrid ItemsSource="{Binding SelectedGroup.Students}" 
+                                <DataGrid ItemsSource="{Binding SelectedGroupStudents}" 
                                       AutoGenerateColumns="False"
                                       CanUserAddRows="False"
                                       GridLinesVisibility="Vertical"
@@ -274,7 +282,10 @@
                                       AlternatingRowBackground="LightGray">
                                     <!--IsReadOnly="True"-->
                                     <!--HorizontalGridLinesBrush="{x:Null}"-->
-
+                                 
+                                    <!--<DataGrid.GroupStyle>
+                                        <GroupStyle/>
+                                    </DataGrid.GroupStyle>-->
 
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
