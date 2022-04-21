@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net;
 using System.Globalization;
 using System.Windows;
+using System.Threading;
 //using CV19.Services.Interfaces;
 
 namespace CV19.Services
@@ -31,7 +32,7 @@ namespace CV19.Services
         /*Разбиваем поток на последовательность строк*/
         private static IEnumerable<string> GetDataLines()
         {
-            using var data_stream = GetDataStream().Result;
+            using var data_stream = (SynchronizationContext.Current is null ? GetDataStream() : Task.Run(GetDataStream)).Result;
             using var data_reader = new StreamReader(data_stream); //создаем объект для чтения строковых данных
 
             while (!data_reader.EndOfStream)//читаем данные пока не встретится конец потока

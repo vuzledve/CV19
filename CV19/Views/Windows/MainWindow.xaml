@@ -12,6 +12,8 @@
         xmlns:l1vm="clr-namespace:CV19.ViewModels.Lesson_1"
         xmlns:l2vm="clr-namespace:CV19.ViewModels.Lesson_2"
         xmlns:l3vm="clr-namespace:CV19.ViewModels.Lesson_3"
+        xmlns:l4vm="clr-namespace:CV19.ViewModels.Lesson_4"
+        xmlns:view="clr-namespace:CV19.Views"
         xmlns:sys ="clr-namespace:System;assembly=System.Runtime" 
         xmlns:local="clr-namespace:CV19"
         xmlns:oxy="http://oxyplot.org/wpf" 
@@ -475,6 +477,17 @@
                             </ListBox>
                         </GroupBox>-->
                     </Grid>
+                </TabItem>
+            </TabControl>
+        </TabItem>
+        <TabItem Header="lesson 4">
+            <TabItem.DataContext>
+                <l4vm:Lesson4ViewModel/>
+
+            </TabItem.DataContext>
+            <TabControl>
+                <TabItem Header="Статистика">
+                    <view:CountryStatisticView/>
                 </TabItem>
             </TabControl>
         </TabItem>
