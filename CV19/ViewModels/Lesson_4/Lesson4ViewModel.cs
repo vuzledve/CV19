@@ -18,5 +18,6 @@ namespace CV19.ViewModels.Lesson_4
 {
     internal class Lesson4ViewModel : ViewModel
     {
+
     }
 }

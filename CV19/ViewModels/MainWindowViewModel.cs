@@ -15,6 +15,10 @@ namespace CV19.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+
+        private readonly CountriesStatisticViewModel _CountriesStatisticViewModel;
+
+
         #region Заголовок окна
 
         private string _Title = "MVVM WPF Lessons";
@@ -37,7 +41,7 @@ namespace CV19.ViewModels
 
         public MainWindowViewModel()
         {
-           
+            _CountriesStatisticViewModel = new CountriesStatisticViewModel(this);
         }
     }
 }
