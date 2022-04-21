@@ -36,10 +36,54 @@ namespace CV19.ViewModels
     {
         private DataService _DataService;
         private MainWindowViewModel MainModel { get; }
+
+
+
+        #region Countries : IEnumerable<CountryInfo> - Статистика по странам
+
+        /// <summary>Статистика по странам</summary>
+        private IEnumerable<CountryInfo> _Countries;
+
+        /// <summary>Статистика по странам</summary>
+        public IEnumerable<CountryInfo> Countries
+        {
+            get => _Countries;
+            private set => Set(ref _Countries, value);
+        }
+
+        #endregion
+
+
+
+
+        #region Commands
+
+        #region RefreshDataCommand
+        public ICommand RefreshDataCommand { get; }
+
+        private bool CanRefreshDataCommandExecute(object p) => true;
+
+        private void OnRefreshDataCommandExecuted(object p)
+        {
+            Countries = _DataService.GetData();
+        }
+        #endregion 
+
+        #endregion
+
+       
+
+
         public CountriesStatisticViewModel(MainWindowViewModel MainModel)
         {
-            MainModel = MainModel;
+            this.MainModel = MainModel;
             _DataService = new DataService();
+
+            #region Commands
+
+            RefreshDataCommand = new ActionCommand(OnRefreshDataCommandExecuted, CanRefreshDataCommandExecute); 
+           
+            #endregion
         }
     }
 }
